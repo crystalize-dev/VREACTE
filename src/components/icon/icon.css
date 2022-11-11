@@ -1,0 +1,10 @@
+.material-symbols-outlined {
+    font-variation-settings:
+            'FILL' 1,
+            'wght' 600,
+            'GRAD' 200,
+            'opsz' 48
+}
+span, img {
+    user-select: none;
+}

@@ -5,7 +5,6 @@ import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./router/AppRouter";
 
 function App() {
-    // eslint-disable-next-line no-unused-vars
     const [isAuth, setIsAuth] = useState(false);
 
     useEffect(() => {
@@ -26,9 +25,11 @@ function App() {
     }
 
     return (
-        <AuthContext.Provider value={{auth, disAuth}}>
+        <AuthContext.Provider value={{isAuth, auth, disAuth}}>
             <BrowserRouter>
-                <AppRouter/>
+                <div className="mainWrapper">
+                    <AppRouter/>
+                </div>
             </BrowserRouter>
         </AuthContext.Provider>
     );

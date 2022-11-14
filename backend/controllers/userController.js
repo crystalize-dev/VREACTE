@@ -48,12 +48,9 @@ export const register = async (req, res) => {
             token
         })
     } catch (err) {
-        // Для себя выводим ошибку
-        console.log(err);
-
         // Для фронта отправляем ответ ошибки
         res.status(500).json({
-            message: "Registration error!"
+            message: "User already exists!"
         })
     }
 }

@@ -1,200 +1,339 @@
-.header {
+.wrapper {
     position: absolute;
-    top: 0;
+    left: 0;
 
     display: flex;
-    align-items: center;
     justify-content: center;
 
     width: 100%;
-    min-width: 1200px;
+    min-width: var(--container-width);
     height: 50px;
-    min-height: 50px;
 
     background: rgba(255, 255, 255, 0.5);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-.wrapper {
+.container {
     position: relative;
 
     display: flex;
-    align-items: center;
 
+    width: 70%;
+    min-width: var(--container-width);
     height: 100%;
-    width: 60%;
-
-    min-width: 900px;
 }
 
-.logo {
+.logoArea {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 5px;
 
-    gap: 10px;
-    width: 190px;
+    width: 170px;
     height: 100%;
-
-    cursor: pointer;
 }
-.logo img {
-    height: 58%;
+.logoArea img {
+    width: 26px;
 }
-.logo h1 {
-    position: relative;
-    top: -3px;
+.logoArea h1 {
+    color: white;
+    font-family: var(--roboto);
     font-size: 22px;
     font-weight: 600;
-    font-family: var(--sans);
-
-    color: white;
 }
-
-.input {
+.inputArea {
     position: relative;
 
     display: flex;
     align-items: center;
 
-    gap: 10px;
     width: 230px;
     height: 100%;
 }
-.input span {
-    position: absolute;
-    left: 3%;
-    color: var(--grayIcon);
-
-    transform: scale(0.8);
-}
-.input input {
-    padding-left: 15%;
-    padding-right: 5%;
+.inputArea input {
+    padding-left: 13%;
 
     width: 100%;
     height: 65%;
 
-    border-radius: 9px;
+    border-radius: 7px;
     outline: none;
     border: none;
 
     font-family: var(--sans);
+    font-size: 13px;
+}
+.inputArea span {
+    position: absolute;
+    left: 2%;
+
+    color: black;
+
+    transform: scale(0.75);
 }
 
-.notifications {
+.notificationArea {
+    margin-left: 15px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     height: 100%;
-    width: 60px;
-}
-.notifications span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-
-    height: 100%;
-    width: 80%;
+    width: 50px;
 
     cursor: pointer;
 }
-.notifications span:hover {
-    background: rgba(255, 255, 255, 0.8);
+.notificationArea span {
+    color: white;
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 200,
+            'opsz' 48;
+}
+.notificationArea:hover {
+    background: white;
+}
+.notificationArea:hover span {
+    color: black;
+    font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 200,
+            'opsz' 48;
+}
+
+.musicArea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+
+    width: fit-content;
+    height: 100%;
+
+    cursor: pointer;
+}
+.musicArea span {
+    color: white;
+
+    transform: scale(0.9);
+}
+.musicArea:hover {
+    background: white;
+}
+.musicArea:hover span, .musicArea:hover h1 {
+    color: black;
+}
+.musicArea span:hover {
+    color: rgba(0, 0, 0, 0.6);
+}
+.musicArea h1 {
+    margin-left: 10px;
+
+    color: white;
+    font-family: var(--roboto);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.profileArea {
+    display: flex;
+    justify-self: flex-end;
+    margin-left: auto;
+
+
+    width: fit-content;
+    height: 100%;
+}
+.moreArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 100%;
+
+    cursor: pointer;
+    color: white;
+}
+.moreArea:hover {
+    background: white;
 
     color: black;
 }
 
-.music {
+.profile {
     display: flex;
     align-items: center;
 
     padding: 10px;
 
     height: 100%;
-    width: 220px;
-    gap: 5px;
+    width: fit-content;
 
     cursor: pointer;
-    color: white;
 }
-.music:hover {
-    background: rgba(255, 255, 255, 0.8);
+.profile:hover {
+    background: white;
+}
+.roundProfile {
+    width: 35px;
+    height: 35px;
 
+    border-radius: 50%;
+
+    background: url("../../img/profile.png") no-repeat center center;
+    background-size: cover;
+}
+.profile span {
+    color: white;
+
+    transform: scale(0.7);
+}
+.profile:hover span {
     color: black;
 }
-.music span:hover {
-    color: rgba(0, 0, 0, 0.6);
-}
-.music p {
-    font-family: var(--roboto);
-    font-size: 16px;
 
-    margin-left: auto;
-}
-
-.profile {
+.modal {
     position: absolute;
+    top: 60px;
     right: 0;
 
     display: flex;
     align-items: center;
+    flex-direction: column;
 
-    height: 100%;
-    width: 200px;
+    padding-top: 10px;
+
+    width: 250px;
+    height: 300px;
+
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0 0 10px 10px;
+
+    filter: opacity(0);
+    pointer-events: none;
+
+    transition: all 0.15s ease 0s;
+
+    z-index: 100;
 }
-.profile > span {
+.hidden {
+    filter: opacity(1) !important;
+    pointer-events: all !important;
+
+    top: 49px;
+}
+.profileCard {
+    width: 90%;
+    height: 100px;
+
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.option {
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-left: 20px;
+    gap: 10px;
 
-    height: 100%;
-    width: 25%;
+    width: 100%;
+    height: 45px;
 
     color: white;
+
     cursor: pointer;
 }
-.profile > span:hover {
-    background: rgba(255, 255, 255, 0.8);
+.option:hover {
+    background: white;
 
     color: black;
 }
-.profileElem {
+.modal > *:nth-child(2){
+    margin-top: 10px;
+}
+.modal > *:nth-child(3){
+    color: white!important;
+    background: none!important;
+    cursor: default;
+}
+.modal > *:nth-child(3) a {
+    cursor: pointer;
+}
+.modal > *:nth-child(3) a:hover {
+    text-decoration: underline;
+}
+.modal > *:last-child {
+    border-radius: 0 0 7px 7px;
+}
+
+.option span {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: var(--gradient);
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 600,
+            'GRAD' 200,
+            'opsz' 48
+}
+.option p {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.profileInfo {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 
-    padding-left: 5%;
+    width: 100%;
+    height: 60%;
 
-    width: 40%;
-    height: 100%;
+    border-radius: 7px 7px 0 0;
 
-    color: white;
     cursor: pointer;
+    font-family: var(--sans);
+    color: white;
 }
-.profileElem:hover {
-    background: rgba(255, 255, 255, 0.8);
+.profileInfo:hover {
+    background: white;
 
     color: black;
 }
-.roundImg {
+
+.paymentInfo {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
 
-    height: 70%;
-    width: 35px;
+    padding: 20px;
 
-    border-radius: 50%;
+    width: 100%;
+    height: 40%;
 
-    overflow: hidden;
+    border-radius: 0 0 7px 7px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+    cursor: pointer;
+
+    font-family: var(--sans);
+    color: white;
 }
-.roundImg img {
-    width: 400%;
-    height: 120%;
+.paymentInfo:hover {
+    background: white;
+
+    color: black;
 }
-.profileElem span {
+.paymentInfo p, .paymentInfo a {
+    font-size: 12px;
+}
+.paymentInfo span {
     transform: scale(0.7);
+}
+.paymentInfo > div {
+    line-height: 14px;
 }

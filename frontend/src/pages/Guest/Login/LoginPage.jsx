@@ -8,7 +8,7 @@ import cl from "./loginPage.module.css"
 import vkBlack from "../../../img/vkBlack.png";
 import Icon from "../../../components/icon/icon";
 import axios from "../../../axios/axios";
-import {handleErrors} from "../../../validation/errorHandler";
+import {handleErrors} from "../../../validation/loginErrorHandler";
 
 
 const LoginPage = () => {

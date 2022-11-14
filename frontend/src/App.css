@@ -1,12 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
 * {
      margin: 0;
      padding: 0;
+
      box-sizing: border-box;
  }
+
+a {
+    text-decoration: none;
+    color: #5f56b2;
+}
 
  #root {
      --roboto: 'Roboto', sans-serif;
@@ -15,15 +21,22 @@
 
      --grayIcon: #747c88;
 
-     --gradColor1: #E70F5E;
-     --gradColor2: #B35AC3;
-     --gradColor3: #148AE3;
-     --gradient: linear-gradient(45deg, var(--gradColor1),var(--gradColor2),var(--gradColor3));
+     --gradColor1: #0717ed;
+     --gradColor3: #ef2525;
+     --gradient: linear-gradient(45deg, var(--gradColor1),var(--gradColor3));
 
-     background: var(--gradient);
-     overflow: hidden;
+     --container-width: 860px;
  }
-a {
-    text-decoration: none;
-    color: #5f56b2;
+
+.mainWrapper {
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+
+    background: var(--gradient);
+
+    width: 100%;
+    min-width: calc(var(--container-width) + 20px);
+    height: 100%;
 }

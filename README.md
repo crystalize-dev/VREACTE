@@ -1,7 +1,5 @@
 #ToDo:
+- Theme для всего сайта
+- Функционал для кнопок profile
+- Собирать информацию о пользователе (getMe)
 - Проверить loginPage на 1920 x 1080
-- Register Page + backend
-
-
-- MainPage
-- Пошире header

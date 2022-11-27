@@ -1,4 +1,4 @@
-# <div style="display:flex;align-items:center"><img src="./frontend/src/img/logo.png" style="width:50px"/> ToDo:</div>
+# <div style="height:fit-content;display:flex;align-items:center"><img src="./frontend/src/img/logo.png" style="width:50px"/> ToDo:</div>
 - SOLID принципы !!!
 - настройка size guest pages !!!
 - Нормальная size адаптация

@@ -1,17 +1,12 @@
 <div style="
 height:50px;
 width:50px;
-display:flex;
-align-items:center;
-gap:30px;
-font-size:30px;
-font-family: Poppins, sans-serif; 
-font-weight: 600;margin-top: 20px;">
+margin-top: 20px;">
     <img src="./frontend/src/img/logo.png" width="50" height="50"/> 
-    ToDo:
 </div>
-
 <hr/>
+
+# To do:
 
 - SOLID принципы !!!
 - настройка size guest pages !!!

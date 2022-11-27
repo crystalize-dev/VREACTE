@@ -7,4 +7,4 @@
 - Собирать информацию о пользователе (getMe)
 
 
-<img src="https://i.imgur.com/HyaMq9D.jpg" style="width:50px"/>
+<img src="https://i.imgur.com/HyaMq9D.png" style="width:50px"/>

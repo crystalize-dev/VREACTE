@@ -1,3 +1,7 @@
+
+
+<img src="./frontend/src/img/logo.png" style="width:50px"/>
+
 #ToDo:
 - SOLID принципы !!!
 - настройка size guest pages !!!
@@ -5,6 +9,3 @@
 - Theme для всего сайта
 - Функционал для кнопок profile
 - Собирать информацию о пользователе (getMe)
-
-
-<img src="./frontend/src/img/logo.png" style="width:50px"/>

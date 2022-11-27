@@ -15,14 +15,28 @@ const ForgotPassword = () => {
     const sendReq = async (e) => {
         e.preventDefault();
 
-        const result = await axios.post("/forgotEmail", {email: email})
-
-        if (result.status === 200) {
-            setStatus("Done!")
-        } else {
-            setStatus("Something went wrong!")
+        if (email === "") {
+            setStatus("Fill in the filed!")
+            return
         }
-        setEmail("");
+
+        try {
+            await axios.post(
+                'http://localhost:4444/forgotEmail',
+                {email: email})
+
+                .then(() => {
+                    setEmail('')
+                    setStatus('Done!')
+                })
+        } catch (err) {
+            if (err.response) {
+                setStatus(err.response.data.message)
+                return
+            }
+
+            setStatus(err.message)
+        }
     }
 
     return (
@@ -42,18 +56,22 @@ const ForgotPassword = () => {
                 <div className={cl.inputArea}>
                     <div className={cl.emailWrap}>
                         <Icon>mail</Icon>
+
                         <input type="email"
                                placeholder="Enter Email"
                                value={email}
-                               onChange={(e) => setEmail(e.target.value)}/>
+                               onChange={(e) => setEmail(e.target.value)}
+                               autoComplete={"on"}/>
                     </div>
 
-                    <button>Send reset link</button>
+                    <button type="submit">Send reset link</button>
                     {
-                        status !== "false" &&
+                        status !== "false" ?
                         <p className={status === "Done!" ? cl.done : cl.error}>
                             {status}
                         </p>
+                            :
+                            null
                     }
                 </div>
             </div>

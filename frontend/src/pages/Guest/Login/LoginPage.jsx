@@ -24,16 +24,26 @@ const LoginPage = () => {
 
         if (handleErrors(password, email, setError)) return
 
-         try {
-             await axios.post("/auth/login", {email: email, password: password});
+        try {
+            await axios.post(
+                'http://localhost:4444/auth/login',
+                {email: email, password: password})
 
-             setEmail("");
-             setPassword("");
+                .then(() => {
+                    setEmail('')
+                    setPassword('')
+                })
 
-             auth(remember)
-         } catch (err) {
-             setError(err.response.data.message)
-         }
+        } catch (err) {
+            if (err.response) {
+                setError(err.response.data.message)
+                return
+            }
+            setError(err.message)
+            return
+        }
+
+        auth(remember);
     }
 
     return (
@@ -50,12 +60,14 @@ const LoginPage = () => {
                 <div className={cl.emailWrap}>
                     <Icon>mail</Icon>
                     <input type="email" placeholder="Enter Email"
-                           value={email} onChange={(e) => setEmail(e.target.value)}/>
+                           value={email} onChange={(e) => setEmail(e.target.value)}
+                    autoComplete={"on"}/>
                 </div>
                 <div className={cl.passwordWrap}>
                     <Icon>lock</Icon>
                     <input type="password" placeholder="Enter Password"
-                           value={password} onChange={(e) => setPassword(e.target.value)}/>
+                           value={password} onChange={(e) => setPassword(e.target.value)}
+                           autoComplete={"off"}/>
                     <div className={error === "" ? classes(cl.error, cl.hidden) : cl.error}>
                         {error}
                     </div>

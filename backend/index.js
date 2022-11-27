@@ -53,10 +53,9 @@ app.post('/forgotEmail', async (req, res) => {
             text: '',
             html: html,
         })
-        res.status(200)
-    } catch (err) {
-        console.log(err)
 
+        res.status(200).json(result)
+    } catch (err) {
         res.status(500).json({...err})
     }
 })

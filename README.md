@@ -6,4 +6,4 @@
 - Функционал для кнопок profile
 - Собирать информацию о пользователе (getMe)
 - 
-![](https://i.imgur.com/MtZvmoN.jpg)
+![](https://i.imgur.com/HyaMq9D.jpg)

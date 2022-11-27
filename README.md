@@ -3,8 +3,9 @@ height:50px;
 width:50px;
 margin-top: 20px;">
     <img src="./frontend/src/img/logo.png" width="50" height="50"/> 
-    # To do:
 </div>
+
+# To do:
 
 - SOLID принципы !!!
 - настройка size guest pages !!!

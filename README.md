@@ -1,6 +1,4 @@
-
-
-<img src="./frontend/src/img/logo.png" style="width:50px"/> # ToDo:
+# <img src="./frontend/src/img/logo.png" style="width:50px"/> ToDo:
 - SOLID принципы !!!
 - настройка size guest pages !!!
 - Нормальная size адаптация

@@ -5,5 +5,6 @@
 - Theme для всего сайта
 - Функционал для кнопок profile
 - Собирать информацию о пользователе (getMe)
-- 
-![](https://i.imgur.com/HyaMq9D.jpg)
+
+
+<img src="https://i.imgur.com/HyaMq9D.jpg"/>

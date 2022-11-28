@@ -1,0 +1,24 @@
+.submitButton {
+    align-self: center;
+
+    width: 85%;
+    height: 55px;
+
+    border-radius: 100px;
+
+    background: black;
+    border: 1px solid transparent;
+
+    font-size: calc(14px + 0.2vw);
+    font-family: var(--poppins);
+    font-weight: 600;
+    color: white;
+
+    cursor: pointer;
+    user-select: none;
+}
+.submitButton:active {
+    background: rgba(0, 0, 0, 0.7);
+
+    border: 3px solid black;
+}

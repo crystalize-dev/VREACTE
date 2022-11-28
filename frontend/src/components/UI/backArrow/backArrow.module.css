@@ -1,0 +1,10 @@
+.arrow {
+    cursor: pointer;
+
+    color: black;
+
+    transition: all 0.3s ease 0s;
+}
+.arrow:hover {
+    transform: scale(1.3);
+}

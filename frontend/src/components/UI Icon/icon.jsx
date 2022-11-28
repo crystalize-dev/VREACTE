@@ -1,9 +1,9 @@
 import React from 'react';
 import "./icon.css"
 
-const Icon = ({children, id}) => {
+const Icon = ({children, id, onClick}) => {
     return (
-        <span id={id} className="material-symbols-outlined">
+        <span onClick={onClick} id={id} className="material-symbols-outlined">
             {children}
         </span>
     );

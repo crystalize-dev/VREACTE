@@ -1,18 +1,21 @@
 import React, {useContext, useState} from 'react';
 import {AuthContext} from "../../../context/authContext";
 import {Link} from "react-router-dom";
-import classes from "classnames"
+import axios from "../../../axios/axios";
 
 import cl from "./loginPage.module.css"
 
-import vkBlack from "../../../img/vkBlack.png";
-import Icon from "../../../components/icon/icon";
-import axios from "../../../axios/axios";
+import {catchErrorsHandler} from "../../../utils/cathErrorHandler";
 import {handleErrors} from "../../../validation/loginErrorHandler";
+import InputLogin from "../../../components/GuestPage/InputLogin/InputLogin";
+import CheckBoxBlack from "../../../components/UI/checkBoxBlack/checkBoxBlack";
+import WindowForm from "../../../components/GuestPage/windowForm/windowForm";
+import ButtonBlack from "../../../components/GuestPage/buttonBlackSubmit/ButtonBlack";
 
 
 const LoginPage = () => {
     const {auth} = useContext(AuthContext)
+
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
 
@@ -35,11 +38,7 @@ const LoginPage = () => {
                 })
 
         } catch (err) {
-            if (err.response) {
-                setError(err.response.data.message)
-                return
-            }
-            setError(err.message)
+            catchErrorsHandler(err, setError)
             return
         }
 
@@ -47,50 +46,40 @@ const LoginPage = () => {
     }
 
     return (
-            <form className={cl.wrapper} onSubmit={(e) => authenticate(e)}>
+        <WindowForm onSubmit={(e) => authenticate(e)}>
+            <div className={cl.textArea}>
+                <h1>Sign in</h1>
 
-                <div className={cl.window}>
-                    <img alt="logo" src={vkBlack}/>
+                <h3>Please login to use platform</h3>
+            </div>
 
-                    <div className={cl.textArea}>
-                        <h1>Sign in</h1>
-                        <h2>Please login to use platform</h2>
-                    </div>
+            <InputLogin placeholder={"Enter Email"}
+                        icon={"mail"} type={"email"}
+                        value={email} onChange={(e) => setEmail(e.target.value)}
+                        autocomplete={"on"}/>
 
-                    <div className={cl.emailWrap}>
-                        <Icon>mail</Icon>
-                        <input type="email" placeholder="Enter Email"
-                               value={email} onChange={(e) => setEmail(e.target.value)}
-                               autoComplete={"on"}/>
-                    </div>
-                    <div className={cl.passwordWrap}>
-                        <Icon>lock</Icon>
-                        <input type="password" placeholder="Enter Password"
-                               value={password} onChange={(e) => setPassword(e.target.value)}
-                               autoComplete={"off"}/>
-                        <div className={error === "" ? classes(cl.error, cl.hidden) : cl.error}>
-                            {error}
-                        </div>
-                    </div>
-                    <div className={cl.options}>
-                        <div className={cl.checkboxWrap}>
-                            <input type="checkbox" checked={remember} onChange={() => setRemember(!remember)}/>
-                            <p>Remember me</p>
-                        </div>
+            <InputLogin placeholder={"Enter Password"}
+                        icon={"lock"} type={"password"} error={error}
+                        value={password} onChange={(e) => setPassword(e.target.value)}
+                        autocomplete={"off"}/>
 
-                        <Link to="/forgot">I forgot my password!</Link>
-                    </div>
+            <div className={cl.options}>
+                <CheckBoxBlack text={"Remember me"}
+                               checked={remember} onChange={() => setRemember(!remember)}
+                               id={"checkBox1"}/>
 
-                    <div className={cl.buttonArea}>
-                        <button type="submit" className={cl.submit}>SIGN IN</button>
+                <Link to="/forgot">I forgot my password!</Link>
+            </div>
 
-                        <div className={cl.registerWrap}>
-                            <p>Don't have an account?</p>
-                            <Link to="/register">Create a free account</Link>
-                        </div>
-                    </div>
+            <div className={cl.buttonArea}>
+                <ButtonBlack>SIGN IN</ButtonBlack>
+
+                <div className={cl.registerWrap}>
+                    <p>Don't have an account?</p>
+                    <Link to="/register">Create a free account</Link>
                 </div>
-            </form>
+            </div>
+        </WindowForm>
     );
 };
 

@@ -1,26 +1,25 @@
 import React, {useState} from 'react';
-import {Link} from "react-router-dom";
 import axios from "../../../axios/axios"
 
 import cl from "./ForgotPassword.module.css";
 
-import vkBlack from "../../../img/vkBlack.png";
-import Icon from "../../../components/icon/icon";
+import classes from "classnames";
+import InputLogin from "../../../components/GuestPage/InputLogin/InputLogin";
+import WindowForm from "../../../components/GuestPage/windowForm/windowForm";
+import ButtonBlack from "../../../components/GuestPage/buttonBlackSubmit/ButtonBlack";
+import {emailErrorHandler} from "../../../validation/emailErrorHandler";
+import {catchErrorsHandler} from "../../../utils/cathErrorHandler";
 
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('')
-    const [status, setStatus] = useState("false")
-
-    const errorStatusDone = "Done!";
+    const [error, setError] = useState("")
 
     const sendReq = async (e) => {
+
         e.preventDefault();
 
-        if (email === "") {
-            setStatus("Fill in the filed!")
-            return
-        }
+        if (emailErrorHandler(email, setError)) return
 
         try {
             await axios.post(
@@ -29,55 +28,30 @@ const ForgotPassword = () => {
 
                 .then(() => {
                     setEmail('')
-                    setStatus(errorStatusDone)
+                    setError("Done!")
                 })
         } catch (err) {
-            if (err.response) {
-                setStatus(err.response.data.message)
-                return
-            }
-
-            setStatus(err.message)
+            catchErrorsHandler(err, setError)
         }
+
     }
 
     return (
-        <form className={cl.wrapper} onSubmit={(e) => sendReq(e)}>
-            <div className={cl.window}>
-                <Link to="/">
-                    <Icon>arrow_back</Icon>
-                </Link>
-
-                <img alt="logo" src={vkBlack}/>
-
-                <div className={cl.textArea}>
-                    <h1>Forgot password?</h1>
-                    <h2>Enter your email to reset it</h2>
-                </div>
-
-                <div className={cl.inputArea}>
-                    <div className={cl.emailWrap}>
-                        <Icon>mail</Icon>
-
-                        <input type="email"
-                               placeholder="Enter Email"
-                               value={email}
-                               onChange={(e) => setEmail(e.target.value)}
-                               autoComplete={"on"}/>
-                    </div>
-
-                    <button type="submit">Send reset link</button>
-                    {
-                        status !== "false" ?
-                        <p className={status === errorStatusDone ? cl.done : cl.error}>
-                            {status}
-                        </p>
-                            :
-                            null
-                    }
-                </div>
+        <WindowForm onSubmit={(e) => sendReq(e)} backArrow={true}>
+            <div className={cl.textArea}>
+                <h2>Forgot password?</h2>
+                <h3>Enter your email to reset it</h3>
             </div>
-        </form>
+
+            <InputLogin type="email" placeholder="Enter Email"
+                        value={email} onChange={(e) => setEmail(e.target.value)}
+                        autoComplete={"on"}
+                        icon={"mail"}
+                        className={error === "Done!" ? classes(cl.expandedInput, cl.doneMarker) : cl.expandedInput}
+                        error={error}/>
+
+            <ButtonBlack>Send reset link</ButtonBlack>
+        </WindowForm>
     );
 };
 

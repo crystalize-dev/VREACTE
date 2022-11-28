@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 import cl from "./header.module.css";
 
-import vkLogo from "../../img/logo.png";
-import Icon from "../icon/icon";
+import vkLogo from "../../../img/logo.png";
+import Icon from "../../UI Icon/icon";
 import classes from "classnames";
-import {AuthContext} from "../../context/authContext";
+import {AuthContext} from "../../../context/authContext";
 
 
 const Header = ({modal, setModal}) => {

@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
-import Header from "../../components/header/header";
+import Header from "../../components/MainPage/header/header";
+
 import cl from "./MainPage.module.css";
+
+
 
 const MainPage = () => {
     const [modalProfile, setModalProfile] = useState(false)

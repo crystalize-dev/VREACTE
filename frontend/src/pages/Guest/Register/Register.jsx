@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import axios from "../../../axios/axios";
+import {useNavigate} from "react-router-dom";
 
 import cl from "./Register.module.css";
 
-import vkBlack from "../../../img/vkBlack.png";
-import Icon from "../../../components/icon/icon";
-import classes from "classnames";
+import {catchErrorsHandler} from "../../../utils/cathErrorHandler";
 import {registerErrorHandler} from "../../../validation/registerErrorHandler";
-import axios from "../../../axios/axios";
+import InputLogin from "../../../components/GuestPage/InputLogin/InputLogin";
+import WindowForm from "../../../components/GuestPage/windowForm/windowForm";
+import ButtonBlack from "../../../components/GuestPage/buttonBlackSubmit/ButtonBlack";
 
 
 const Register = () => {
@@ -16,7 +17,7 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [fullName, setFullName] = useState('')
 
-    const [error, setError] = useState('false')
+    const [error, setError] = useState('')
 
     const navigate = useNavigate();
 
@@ -29,7 +30,8 @@ const Register = () => {
             await axios.post("/auth/register", {
                 email: email,
                 password: password,
-                fullName: fullName})
+                fullName: fullName
+            })
 
             setEmail("")
             setPassword("")
@@ -37,53 +39,40 @@ const Register = () => {
             setFullName("")
 
             navigate("/")
+
         } catch (err) {
-            setError(err.response.data.message)
+            catchErrorsHandler(err, setError)
         }
     }
 
     return (
-        <form className={cl.wrapper} onSubmit={(e) => register(e)}>
-            <div className={cl.window}>
-                <Link to="/">
-                    <Icon>arrow_back</Icon>
-                </Link>
+        <WindowForm onSubmit={(e) => register(e)} backArrow={true}>
+            <h2>Registration</h2>
 
-                <img alt="logo" src={vkBlack}/>
-                <h1>Registrarion</h1>
+            <div className={cl.inputArea}>
+                <InputLogin value={fullName} onChange={(e) => setFullName(e.target.value)}
+                            type="text" placeholder="Enter Name"
+                            icon={"person"}
+                            autocomplete={"on"}/>
 
-                <div className={cl.inputArea}>
-                    <div className={cl.inputWrapper}>
-                        <Icon>person</Icon>
-                        <input value={fullName} onChange={(e) => setFullName(e.target.value)}
-                               type="text" placeholder="Enter Name"/>
-                    </div>
-                    <div className={cl.inputWrapper}>
-                        <Icon>mail</Icon>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)}
-                               type="email" placeholder="Enter Email"/>
-                    </div>
-                    <div className={cl.inputWrapper}>
-                        <Icon>lock</Icon>
-                        <input value={password} onChange={(e) => setPassword(e.target.value)}
-                               type="password" placeholder="Enter Password"/>
-                    </div>
-                    <div className={cl.inputWrapper}>
-                        <Icon>enhanced_encryption</Icon>
-                        <input value={passwordRepeat} onChange={(e) => setPasswordRepeat(e.target.value)}
-                               type="password" placeholder="Repeat Password"/>
-                    </div>
-                </div>
+                <InputLogin value={email} onChange={(e) => setEmail(e.target.value)}
+                            type="email" placeholder="Enter Email"
+                            icon={"mail"}
+                            autocomplete={"on"}/>
 
-                <div className={cl.btnArea}>
-                    <p className={error === "false" ? classes(cl.error, cl.hidden) : cl.error}>
-                        {error}
-                    </p>
+                <InputLogin value={password} onChange={(e) => setPassword(e.target.value)}
+                            type="password" placeholder="Enter Password"
+                            icon={"lock"}
+                            autocomplete={"off"}/>
 
-                    <button>REGISTER</button>
-                </div>
+                <InputLogin value={passwordRepeat} onChange={(e) => setPasswordRepeat(e.target.value)}
+                            type="password" placeholder="Repeat Password"
+                            icon={"enhanced_encryption"}
+                            autocomplete={"off"} error={error}/>
             </div>
-        </form>
+
+            <ButtonBlack className={cl.submitButton}>Register</ButtonBlack>
+        </WindowForm>
     );
 };
 

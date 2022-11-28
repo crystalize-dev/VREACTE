@@ -1,8 +1,10 @@
-import './App.css';
 import {useEffect, useState} from "react";
 import {AuthContext} from "./context/authContext";
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./router/AppRouter";
+
+import './App.css';
+
 
 function App() {
     const [isAuth, setIsAuth] = useState(false);

@@ -14,6 +14,10 @@ a {
     color: #5f56b2;
 }
 
+span, img {
+    user-select: none;
+}
+
  #root {
      --roboto: 'Roboto', sans-serif;
      --sans: 'Open Sans', sans-serif;

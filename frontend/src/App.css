@@ -37,6 +37,8 @@ a {
     background: var(--gradient);
 
     width: 100%;
-    min-width: calc(var(--container-width) + 20px);
     height: 100%;
+}
+.minWidth {
+    min-width: calc(var(--container-width) + 20px);
 }

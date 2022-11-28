@@ -6,8 +6,7 @@ import {loginValidation, registerValidation} from "./validations/auth.js";
 
 import * as userController from "./controllers/userController.js";
 import {checkAuth} from "./utils/checkAuth.js";
-import nodemailer from "nodemailer";
-import {html} from "./mailedHTML/mailedHTML.js";
+import {emailController} from "./controllers/emailController.js";
 
 export const secretJWTKey = 'secretKEY123123';
 
@@ -34,31 +33,7 @@ app.post('/auth/register', registerValidation, userController.register)
 
 app.post('/auth/login', loginValidation, userController.login)
 
-app.post('/forgotEmail', async (req, res) => {
-    try {
-        let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false,
-            auth: {
-                user: "igor.igor2013xz@gmail.com",
-                pass: "ezjbwkegxmykctpk"
-            }
-        })
-
-        let result = await transporter.sendMail({
-            from: '"React VK" <igor.igor2013xz@gmail.com>',
-            to: req.body.email,
-            subject: 'Reset link',
-            text: '',
-            html: html,
-        })
-
-        res.status(200).json(result)
-    } catch (err) {
-        res.status(500).json({...err})
-    }
-})
+app.post('/forgotEmail', emailController)
 
 // Запускаем сервер
 app.listen(4444, (err) => {

@@ -15,6 +15,8 @@
 }
 
 .window {
+    --border-radius: 10px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +33,7 @@
     min-height: var(--height);
 
 
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     background: rgba(255, 255, 255, 0.5);
 
     animation: appear 0.7s ease forwards;
@@ -50,7 +52,7 @@
     min-height: var(--height);
 
     background: rgba(255, 255, 255, 0.15);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     transform: rotate(0deg);
 
     animation: rotate 0.5s ease forwards;

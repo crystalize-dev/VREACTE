@@ -47,50 +47,50 @@ const LoginPage = () => {
     }
 
     return (
-        <form className={cl.wrapper} onSubmit={(e) => authenticate(e)}>
+            <form className={cl.wrapper} onSubmit={(e) => authenticate(e)}>
 
-            <div className={cl.window}>
-                <img alt="logo" src={vkBlack}/>
+                <div className={cl.window}>
+                    <img alt="logo" src={vkBlack}/>
 
-                <div className={cl.textArea}>
-                    <h1>Sign in</h1>
-                    <h2>Please login to use platform</h2>
-                </div>
-
-                <div className={cl.emailWrap}>
-                    <Icon>mail</Icon>
-                    <input type="email" placeholder="Enter Email"
-                           value={email} onChange={(e) => setEmail(e.target.value)}
-                    autoComplete={"on"}/>
-                </div>
-                <div className={cl.passwordWrap}>
-                    <Icon>lock</Icon>
-                    <input type="password" placeholder="Enter Password"
-                           value={password} onChange={(e) => setPassword(e.target.value)}
-                           autoComplete={"off"}/>
-                    <div className={error === "" ? classes(cl.error, cl.hidden) : cl.error}>
-                        {error}
-                    </div>
-                </div>
-                <div className={cl.options}>
-                    <div className={cl.checkboxWrap}>
-                        <input type="checkbox" checked={remember} onChange={() => setRemember(!remember)}/>
-                        <p>Remember me</p>
+                    <div className={cl.textArea}>
+                        <h1>Sign in</h1>
+                        <h2>Please login to use platform</h2>
                     </div>
 
-                    <Link to="/forgot">I forgot my password!</Link>
-                </div>
+                    <div className={cl.emailWrap}>
+                        <Icon>mail</Icon>
+                        <input type="email" placeholder="Enter Email"
+                               value={email} onChange={(e) => setEmail(e.target.value)}
+                               autoComplete={"on"}/>
+                    </div>
+                    <div className={cl.passwordWrap}>
+                        <Icon>lock</Icon>
+                        <input type="password" placeholder="Enter Password"
+                               value={password} onChange={(e) => setPassword(e.target.value)}
+                               autoComplete={"off"}/>
+                        <div className={error === "" ? classes(cl.error, cl.hidden) : cl.error}>
+                            {error}
+                        </div>
+                    </div>
+                    <div className={cl.options}>
+                        <div className={cl.checkboxWrap}>
+                            <input type="checkbox" checked={remember} onChange={() => setRemember(!remember)}/>
+                            <p>Remember me</p>
+                        </div>
 
-                <div className={cl.buttonArea}>
-                    <button type="submit" className={cl.submit}>SIGN IN</button>
+                        <Link to="/forgot">I forgot my password!</Link>
+                    </div>
 
-                    <div className={cl.registerWrap}>
-                        <p>Don't have an account?</p>
-                        <Link to="/register">Create a free account</Link>
+                    <div className={cl.buttonArea}>
+                        <button type="submit" className={cl.submit}>SIGN IN</button>
+
+                        <div className={cl.registerWrap}>
+                            <p>Don't have an account?</p>
+                            <Link to="/register">Create a free account</Link>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
     );
 };
 

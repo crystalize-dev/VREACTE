@@ -27,7 +27,7 @@ function App() {
     return (
         <AuthContext.Provider value={{isAuth, auth, disAuth}}>
             <BrowserRouter>
-                <div className="mainWrapper">
+                <div className={isAuth === true ? "mainWrapper minWidth" : "mainWrapper"}>
                     <AppRouter/>
                 </div>
             </BrowserRouter>

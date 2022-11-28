@@ -12,6 +12,8 @@ const ForgotPassword = () => {
     const [email, setEmail] = useState('')
     const [status, setStatus] = useState("false")
 
+    const errorStatusDone = "Done!";
+
     const sendReq = async (e) => {
         e.preventDefault();
 
@@ -27,7 +29,7 @@ const ForgotPassword = () => {
 
                 .then(() => {
                     setEmail('')
-                    setStatus('Done!')
+                    setStatus(errorStatusDone)
                 })
         } catch (err) {
             if (err.response) {
@@ -67,7 +69,7 @@ const ForgotPassword = () => {
                     <button type="submit">Send reset link</button>
                     {
                         status !== "false" ?
-                        <p className={status === "Done!" ? cl.done : cl.error}>
+                        <p className={status === errorStatusDone ? cl.done : cl.error}>
                             {status}
                         </p>
                             :

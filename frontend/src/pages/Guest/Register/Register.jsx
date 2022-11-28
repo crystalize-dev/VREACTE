@@ -76,7 +76,10 @@ const Register = () => {
                 </div>
 
                 <div className={cl.btnArea}>
-                    <p className={error === "false" ? classes(cl.error, cl.hidden) : cl.error}>{error}</p>
+                    <p className={error === "false" ? classes(cl.error, cl.hidden) : cl.error}>
+                        {error}
+                    </p>
+
                     <button>REGISTER</button>
                 </div>
             </div>

@@ -29,7 +29,7 @@ const LoginPage = () => {
 
         try {
             await axios.post(
-                'http://localhost:4444/auth/login',
+                '/auth/login',
                 {email: email, password: password})
 
                 .then(() => {

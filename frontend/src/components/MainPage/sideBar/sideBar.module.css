@@ -1,0 +1,78 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 15px;
+
+    width: 185px;
+    height: calc(100% - 50px);
+}
+
+.logoArea {
+    display: flex;
+    align-items: center;
+
+    margin-top: -1px;
+
+    height: 50px;
+
+    gap: 5px;
+    cursor: pointer;
+}
+.logoArea img {
+    width: 26px;
+}
+.logoArea h1 {
+    color: white;
+    font-family: var(--roboto);
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.subLinksArea {
+    margin-top: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: fit-content;
+}
+
+.subLinkElem {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+
+    gap: 8px;
+
+    width: 100%;
+    height: 30px;
+
+    color: white;
+
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 13px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+.subLinkElem:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.subLinksArea span {
+    transform: scale(0.9);
+
+    background: var(--gradColor3);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 900,
+            'GRAD' 800,
+            'opsz' 48
+}

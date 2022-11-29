@@ -1,8 +1,23 @@
 .wrapper {
-    width: 70%;
+    display: flex;
+
+    width: 83%;
     min-width: var(--container-width);
     height: 100%;
 }
 .wrapper > * {
+    transition: filter 0.3s ease 0s;
+    filter: opacity(0);
+
     animation: appear 1s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        filter: opacity(0);
+    }
+
+    to {
+        filter: opacity(1);
+    }
 }

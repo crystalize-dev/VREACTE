@@ -7,6 +7,7 @@ margin-top: 20px;">
 
 # To do:
 
+- Ограничение container !!!
 - декомпозиция для header + sidebar
 - getMe
 - Theme для всего сайта

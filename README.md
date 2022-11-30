@@ -7,6 +7,7 @@ margin-top: 20px;">
 
 # To do:
 
+- fetch до render'а
 - Проверить на 1920x1080
 - декомпозиция для header + sidebar + mainPage + app.js
 - getMe

@@ -5,15 +5,24 @@ import Icon from "../../UI Icon/icon";
 import classes from "classnames";
 import {AuthContext} from "../../../context/authContext";
 import {Link} from "react-router-dom";
+import {UserContext} from "../../../context/userContext";
 
 
 const Header = ({modal, setModal}) => {
     const {disAuth} = useContext(AuthContext);
+    const {userData} = useContext(UserContext)
 
     const openProfile = (e) => {
         e.stopPropagation();
 
         setModal(!modal)
+    }
+
+    const disconnect = () => {
+        disAuth();
+
+        localStorage.removeItem('token')
+        localStorage.removeItem('fullName')
     }
 
     return (
@@ -55,7 +64,7 @@ const Header = ({modal, setModal}) => {
                         <div className={cl.profileCard}>
                             <div className={cl.profileInfo}>
                                 <div className={cl.roundProfile}/>
-                                <p>Игорь Андреев</p>
+                                <p>{userData}</p>
                                 <Icon>navigate_next</Icon>
                             </div>
                             <div className={cl.paymentInfo}>
@@ -79,7 +88,7 @@ const Header = ({modal, setModal}) => {
                             <Icon>help</Icon>
                             <p>Помощь</p>
                         </div>
-                        <div className={cl.option} onClick={() => disAuth()}>
+                        <div className={cl.option} onClick={() => disconnect()}>
                             <Icon>logout</Icon>
                             <p>Выйти</p>
                         </div>

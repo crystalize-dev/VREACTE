@@ -7,8 +7,8 @@ margin-top: 20px;">
 
 # To do:
 
-- Ограничение container !!!
-- декомпозиция для header + sidebar
+- Проверить на 1920x1080
+- декомпозиция для header + sidebar + mainPage + app.js
 - getMe
 - Theme для всего сайта
 - Функционал для кнопок profile

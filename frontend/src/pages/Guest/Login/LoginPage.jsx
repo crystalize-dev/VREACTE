@@ -11,6 +11,7 @@ import InputLogin from "../../../components/GuestPage/InputLogin/InputLogin";
 import CheckBoxBlack from "../../../components/UI/checkBoxBlack/checkBoxBlack";
 import WindowForm from "../../../components/GuestPage/windowForm/windowForm";
 import ButtonBlack from "../../../components/GuestPage/buttonBlackSubmit/ButtonBlack";
+import {UserContext} from "../../../context/userContext";
 
 
 const LoginPage = () => {
@@ -18,6 +19,8 @@ const LoginPage = () => {
 
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
+
+    const {setUserData: changeUserData} = useContext(UserContext)
 
     const [error, setError] = useState("")
     const [remember, setRemember] = useState(false)
@@ -32,11 +35,15 @@ const LoginPage = () => {
                 '/auth/login',
                 {email: email, password: password})
 
-                .then(() => {
+                .then((res) => {
                     setEmail('')
                     setPassword('')
-                })
 
+                    localStorage.setItem('token', res.data.token);
+                    localStorage.setItem('fullName', res.data.fullName)
+
+                    changeUserData(res.data.fullName)
+                })
         } catch (err) {
             catchErrorsHandler(err, setError)
             return

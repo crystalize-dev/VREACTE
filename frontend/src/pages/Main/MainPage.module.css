@@ -3,6 +3,7 @@
 
     width: 83%;
     min-width: var(--container-width);
+    max-width: var(--max-container-width);
     height: 100%;
 }
 .wrapper > * {

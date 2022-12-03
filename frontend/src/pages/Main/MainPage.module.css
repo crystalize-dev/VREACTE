@@ -13,6 +13,17 @@
     animation: appear 1s ease forwards;
 }
 
+.contentWrapper {
+    margin-top: 65px;
+
+    width: 950px;
+    min-width: 950px;
+    height: 550px;
+    min-height: 550px;
+
+    background: red;
+}
+
 @keyframes appear {
     from {
         filter: opacity(0);

@@ -8,7 +8,6 @@ import {subRoutes} from "../../router/routes";
 import {UserContext} from "../../context/userContext";
 
 
-
 const MainPage = () => {
     const [modalProfile, setModalProfile] = useState(false)
     const {setUserData: changeUserData} = useContext(UserContext)
@@ -21,13 +20,14 @@ const MainPage = () => {
         <div className={cl.wrapper} onMouseDown={() => setModalProfile(false)}>
             <Header modal={modalProfile} setModal={setModalProfile}/>
             <SideBar/>
-
-            <Routes>
-                {
-                    subRoutes.map(route =>
-                        <Route key={route.path} element={route.element} path={route.path}/>)
-                }
-            </Routes>
+            <div className={cl.contentWrapper}>
+                <Routes>
+                    {
+                        subRoutes.map(route =>
+                            <Route key={route.path} element={route.element} path={route.path}/>)
+                    }
+                </Routes>
+            </div>
         </div>
     );
 };

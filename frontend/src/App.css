@@ -30,6 +30,7 @@ span, img {
      --gradient: linear-gradient(45deg, var(--gradColor1),var(--gradColor3));
 
      --container-width: 860px;
+     --container-height: 700x;
      --max-container-width: 1440px;
  }
 

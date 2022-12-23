@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from "./Messages.module.css";
-import Icon from "../../../../components/UI Icon/icon";
+import Icon from "../../../../components/Icon/icon";
 import FriendElem from "../../../../components/MainPage/Messages/freindElem/friendElem";
 
 

@@ -20,7 +20,8 @@
     outline: none;
     border: none;
 
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--background-lighter);
+    color: var(--button-color);
     border-radius: 100px;
 
     font-size: calc(12px + 0.2vw);
@@ -28,11 +29,13 @@
 
     transition: all 0.3s ease 0s;
 }
+.wrapper input::placeholder {
+    color: var(--icons-hover);
+}
 .wrapper input:focus {
-    background: #edf1f4;
+    background: var(--theme-color);
 
-    box-shadow: 3px 3px 12px rgba(0,0,0,0.3),
-    -3px -3px 12px rgba(255, 255, 255, 0.3);
+    box-shadow: var(--input-shadow);
 }
 .padding {
     padding-right: 18% !important;
@@ -40,6 +43,7 @@
 
 .wrapper span {
     position: absolute;
+    color: var(--button-color);
 
     font-variation-settings:
             'FILL' 0,

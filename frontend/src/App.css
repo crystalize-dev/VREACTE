@@ -3,13 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
 * {
-     margin: 0;
-     padding: 0;
+    margin: 0;
+    padding: 0;
 
-     box-sizing: border-box;
- }
+    box-sizing: border-box;
+}
 
-a {
+#root[data-theme="dark"] a {
+    text-decoration: none;
+    color: #9086ff;
+}
+
+#root[data-theme="light"] a {
     text-decoration: none;
     color: #5f56b2;
 }
@@ -18,21 +23,65 @@ span, img {
     user-select: none;
 }
 
- #root {
-     --roboto: 'Roboto', sans-serif;
-     --sans: 'Open Sans', sans-serif;
-     --poppins: 'Poppins', sans-serif;
+#root {
+    --roboto: 'Roboto', sans-serif;
+    --sans: 'Open Sans', sans-serif;
+    --poppins: 'Poppins', sans-serif;
 
-     --grayIcon: #747c88;
+    --grayIcon: #747c88;
 
-     --gradColor1: #0717ed;
-     --gradColor3: #ef2525;
-     --gradient: linear-gradient(45deg, var(--gradColor1),var(--gradColor3));
+    --gradColor1: #0717ed;
+    --gradColor3: #ef2525;
+    --gradient: linear-gradient(45deg, var(--gradColor1), var(--gradColor3));
 
-     --container-width: 860px;
-     --container-height: 700x;
-     --max-container-width: 1440px;
- }
+    --container-width: 860px;
+    --container-height: 700x;
+    --max-container-width: 1440px;
+}
+
+#root[data-theme="dark"] {
+    --background: rgba(0, 0, 0, 0.5);
+    --background-lighter: rgba(0, 0, 0, 0.3);
+    --color-filler: rgb(47, 8, 20);
+
+    --font-color: white;
+    --font-color-hover: black;
+    --icons-hover: rgba(255, 255, 255, 0.6);
+
+    --border: 1px solid rgba(0, 0, 0, 0.5);
+    --border-lighter: 1px solid rgba(255, 255, 255, 0.1);
+
+    --scroll: rgba(0, 0, 0, 0.4);
+
+    --button-color: white;
+    --theme-color: black;
+    --button-active: rgba(255, 255, 255, 0.3);
+    --input-shadow: 3px 3px 12px rgba(0,0,0,0.25),
+    -3px -3px 12px rgba(255,255,255,0.05);
+}
+
+#root[data-theme="light"] {
+    --background: rgba(255, 255, 255, 0.5);
+    --background-lighter: rgba(255, 255, 255, 0.3);
+    --color-filler: rgb(237, 199, 211);
+
+    --font-color: white;
+    --font-color-hover: black;
+    --icons-hover: rgba(0, 0, 0, 0.6);
+
+    --border: 1px solid white;
+    --border-lighter: 1px solid rgba(255, 255, 255, 0.3);
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+    --scroll: white;
+
+    --button-color: black;
+    --theme-color: white;
+    --button-active: rgba(0, 0, 0, 0.7);
+    --input-shadow: 3px 3px 12px rgba(0,0,0,0.3),
+    -3px -3px 12px rgba(255, 255, 255, 0.3);
+}
+
 
 .mainWrapper {
     position: absolute;
@@ -45,6 +94,7 @@ span, img {
     width: 100%;
     height: 100%;
 }
+
 .minWidth {
     min-width: calc(var(--container-width) + 20px);
 }

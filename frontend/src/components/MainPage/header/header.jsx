@@ -1,16 +1,18 @@
 import React, {useContext} from 'react';
 import cl from "./header.module.css";
 
-import Icon from "../../UI Icon/icon";
+import Icon from "../../Icon/icon";
 import classes from "classnames";
 import {AuthContext} from "../../../context/authContext";
 import {Link} from "react-router-dom";
 import {UserContext} from "../../../context/userContext";
+import {ThemeContext} from "../../../context/ThemeContext";
 
 
 const Header = ({modal, setModal}) => {
     const {disAuth} = useContext(AuthContext);
     const {userData} = useContext(UserContext)
+    const {switchTheme: changeTheme} = useContext(ThemeContext);
 
     const openProfile = (e) => {
         e.stopPropagation();
@@ -82,7 +84,7 @@ const Header = ({modal, setModal}) => {
                         </div>
                         <div className={cl.option}>
                             <Icon>palette</Icon>
-                            <p>Тема: <Link to={"/"}>светлая</Link></p>
+                            <p>Тема: <a onClick={() => changeTheme()}>светлая</a></p>
                         </div>
                         <div className={cl.option}>
                             <Icon>help</Icon>

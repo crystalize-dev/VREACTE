@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 import cl from "./backArrow.module.css";
 
-import Icon from "../../UI Icon/icon";
+import Icon from "../../Icon/icon";
 import classes from "classnames";
 
 

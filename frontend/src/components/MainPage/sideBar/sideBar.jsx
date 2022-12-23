@@ -3,7 +3,7 @@ import React from 'react';
 import cl from "./sideBar.module.css"
 
 import vkLogo from "../../../img/logo.png";
-import Icon from "../../UI Icon/icon";
+import Icon from "../../Icon/icon";
 import {Link} from "react-router-dom";
 
 

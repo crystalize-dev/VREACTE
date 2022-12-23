@@ -8,10 +8,10 @@ import cl from "./loginPage.module.css"
 import {catchErrorsHandler} from "../../../utils/cathErrorHandler";
 import {handleErrors} from "../../../validation/loginErrorHandler";
 import InputLogin from "../../../components/GuestPage/InputLogin/InputLogin";
-import CheckBoxBlack from "../../../components/UI/checkBoxBlack/checkBoxBlack";
 import WindowForm from "../../../components/GuestPage/windowForm/windowForm";
 import ButtonBlack from "../../../components/GuestPage/buttonBlackSubmit/ButtonBlack";
 import {UserContext} from "../../../context/userContext";
+import CheckBox from "../../../components/UI/checkBox/checkBox";
 
 
 const LoginPage = () => {
@@ -71,7 +71,7 @@ const LoginPage = () => {
                         autocomplete={"off"}/>
 
             <div className={cl.options}>
-                <CheckBoxBlack text={"Remember me"}
+                <CheckBox text={"Remember me"}
                                checked={remember} onChange={() => setRemember(!remember)}
                                id={"checkBox1"}/>
 

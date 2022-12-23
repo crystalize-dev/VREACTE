@@ -1,9 +1,9 @@
 import React from 'react';
 
-import cl from "./checkBoxBlack.module.css"
+import cl from "./checkBox.module.css"
 
 
-const CheckBoxBlack = ({checked, onChange, id, text}) => {
+const CheckBox = ({checked, onChange, id, text}) => {
     return (
         <div className={cl.wrapper}>
             <input className={cl.customCheckBox}
@@ -16,4 +16,4 @@ const CheckBoxBlack = ({checked, onChange, id, text}) => {
     );
 };
 
-export default CheckBoxBlack;
+export default CheckBox;

@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import cl from "./friendElem.module.css";
-import defaultImg from "../../../../img/profile.jpeg"
+import lightImg from "../../../../img/profile.jpeg";
+import darkImg from "../../../../img/profileDark.png";
+import {ThemeContext} from "../../../../context/ThemeContext";
 
-const FriendElem = ({img = defaultImg,
-                    sender = "Отправтель",
+const FriendElem = ({img, sender = "Отправтель",
                     lastMessage="Последнее сообщение",
-                    chatName="Название чата"}) => {
+                    chatName="Название чата"}) =>
+{
+    const {theme} = useContext(ThemeContext);
 
+    if (!img) {
+        theme === "light" ? img = lightImg : img = darkImg;
+    }
 
     return (
         <div className={cl.friendElem}>

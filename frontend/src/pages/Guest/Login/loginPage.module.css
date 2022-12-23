@@ -12,6 +12,7 @@
     justify-content: space-between;
 
     width: 85%;
+    color: var(--button-color);
 }
 .options > a {
     white-space: nowrap;
@@ -40,4 +41,5 @@
     font-size: 13px;
 
     white-space: nowrap;
+    color: var(--button-color);
 }

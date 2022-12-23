@@ -7,9 +7,7 @@ margin-top: 20px;">
 
 # To do:
 
-- Сломался size у mainPage (left sidebar и contentWrapper)
+- Сломался size везде!
 - Проверить на 1920x1080
-- декомпозиция для header + sidebar + mainPage + app.js
 - Скрывать scrollbar
-- Theme для всего сайта
 - Функционал для кнопок profile

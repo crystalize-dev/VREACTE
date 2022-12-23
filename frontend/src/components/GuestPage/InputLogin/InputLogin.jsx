@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Icon from "../../UI Icon/icon";
+import Icon from "../../Icon/icon";
 import classes from "classnames";
 
 import cl from "./InputLogin.module.css";

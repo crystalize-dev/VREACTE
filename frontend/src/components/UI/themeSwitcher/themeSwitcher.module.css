@@ -1,0 +1,13 @@
+.wrapper {
+    width: 30px;
+    height: 30px;
+
+    cursor: pointer;
+    color: var(--button-color);
+
+    transition: transform 0.3s ease 0s;
+}
+.wrapper:hover {
+    transform: scale(1.2);
+}
+

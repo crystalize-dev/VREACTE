@@ -24,7 +24,7 @@
 }
 .friendElem h1 {
     font-size: 1rem;
-    color: white;
+    color: var(--font-color);
     font-family: var(--sans);
     font-weight: 400;
 }
@@ -42,7 +42,7 @@
     height: 100%;
 
     overflow: auto;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: var(--border-lighter);
 }
 .friendElem:last-child .textArea {
     border-bottom: none;

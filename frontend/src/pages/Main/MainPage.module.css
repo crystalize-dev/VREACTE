@@ -15,13 +15,18 @@
 
 .contentWrapper {
     margin-top: 65px;
+    margin-left: 20px;
 
     width: 950px;
     min-width: 950px;
     height: 550px;
     min-height: 550px;
+}
 
-    background: red;
+.contentWrapper > * {
+    filter: opacity(0);
+
+    animation: appear 0.3s ease forwards;
 }
 
 @keyframes appear {

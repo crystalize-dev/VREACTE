@@ -6,6 +6,7 @@
 
     width: 185px;
     height: calc(100% - 50px);
+    z-index: 10000;
 }
 
 .logoArea {
@@ -23,7 +24,7 @@
     width: 26px;
 }
 .logoArea h1 {
-    color: white;
+    color: var(--font-color);
     font-family: var(--roboto);
     font-size: 22px;
     font-weight: 500;
@@ -49,8 +50,6 @@
     width: 100%;
     height: 30px;
 
-    color: white;
-
     font-family: var(--sans);
     font-weight: 400;
     font-size: 13px;
@@ -60,7 +59,10 @@
     cursor: pointer;
 }
 .subLinkElem:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--background);
+}
+.subLinkElem p {
+    color: var(--font-color);
 }
 
 .subLinksArea span {

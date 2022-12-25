@@ -7,7 +7,6 @@ import AppRouter from "./router/AppRouter";
 
 import './App.css';
 
-
 function App() {
     const root = document.getElementById('root')
     const [isAuth, setIsAuth] = useState(false);

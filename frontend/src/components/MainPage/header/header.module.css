@@ -262,10 +262,11 @@
     background: none!important;
     cursor: default;
 }
-.modal > *:nth-child(3) a {
+.theme {
     cursor: pointer;
+    -webkit-text-fill-color:  #9086ff !important;
 }
-.modal > *:nth-child(3) a:hover {
+.theme:hover {
     text-decoration: underline;
 }
 .modal > *:last-child {
@@ -304,7 +305,7 @@
     color: var(--font-color);
 }
 .profileInfo:hover {
-    background:var(--font-color);
+    background: white;
 
     color: var(--font-color-hover);
 }
@@ -328,7 +329,7 @@
     color: var(--font-color);
 }
 .paymentInfo:hover {
-    background: var(--font-color);
+    background: white;
 
     color: var(--font-color-hover);
 }

@@ -21,9 +21,10 @@
     height: 50px;
 
     border-radius: 50%;
+    object-fit: cover;
 }
 .friendElem h1 {
-    font-size: 1rem;
+    font-size: 14px;
     color: var(--font-color);
     font-family: var(--sans);
     font-weight: 400;
@@ -50,7 +51,7 @@
 .friendElem p {
     font-size: 12px;
 
-    color: rgba(255, 255, 255, 0.7);
+    color: #363636;
 
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -58,4 +59,13 @@
 }
 .friendElem p span {
     color: #5a5a5a;
+}
+
+.messageArea {
+    display: flex;
+}
+.noChoose {
+    width: 100px;
+    height: 100px;
+    background: red;
 }

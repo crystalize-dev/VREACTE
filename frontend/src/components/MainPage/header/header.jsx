@@ -11,8 +11,8 @@ import {ThemeContext} from "../../../context/ThemeContext";
 
 const Header = ({modal, setModal}) => {
     const {disAuth} = useContext(AuthContext);
-    const {userData} = useContext(UserContext)
-    const {switchTheme: changeTheme} = useContext(ThemeContext);
+    const {userData} = useContext(UserContext);
+    const {theme, switchTheme} = useContext(ThemeContext);
 
     const openProfile = (e) => {
         e.stopPropagation();
@@ -84,7 +84,7 @@ const Header = ({modal, setModal}) => {
                         </div>
                         <div className={cl.option}>
                             <Icon>palette</Icon>
-                            <p>Тема: <a onClick={() => changeTheme()}>светлая</a></p>
+                            <p>Тема: <span className={cl.theme} onClick={() => switchTheme()}>{theme === "light" ? "светлая" : "тёмная"}</span></p>
                         </div>
                         <div className={cl.option}>
                             <Icon>help</Icon>

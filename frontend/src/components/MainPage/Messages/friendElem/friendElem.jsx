@@ -4,22 +4,23 @@ import lightImg from "../../../../img/profile.jpeg";
 import darkImg from "../../../../img/profileDark.png";
 import {ThemeContext} from "../../../../context/ThemeContext";
 
-const FriendElem = ({img, sender = "Отправтель",
-                    lastMessage="Последнее сообщение",
-                    chatName="Название чата"}) =>
+const FriendElem = ({img, sender = "Кто",
+                    lastMessage="Последнее длинное сообщение с троеточием :)",
+                    chatName="Название чата",
+                    onClick}) =>
 {
     const {theme} = useContext(ThemeContext);
 
-    if (!img) {
+    if (img === null) {
         theme === "light" ? img = lightImg : img = darkImg;
     }
 
     return (
-        <div className={cl.friendElem}>
+        <div className={cl.friendElem} onClick={onClick}>
             <img className={cl.round} src={img} alt={""} draggable={false}/>
             <div className={cl.textArea}>
                 <h1>{chatName}</h1>
-                <p><span>{sender}: </span>{lastMessage}</p>
+                <p>{sender}: <span>{lastMessage}</span></p>
             </div>
         </div>
     );

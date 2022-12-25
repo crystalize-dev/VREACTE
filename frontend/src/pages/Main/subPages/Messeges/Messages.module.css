@@ -51,7 +51,6 @@
 }
 .search span {
     cursor: pointer;
-    transition: all 0.2s ease 0s;
     transform: scale(0.9);
     font-variation-settings:
             'FILL' 1,
@@ -76,7 +75,7 @@
     border-radius: 0 0 0 var(--border-radius);
     border-top: var(--border);
 
-    color: white;
+    color: var(--font-color);
     font-family: var(--sans);
     font-size: 13px;
 }
@@ -103,7 +102,264 @@
 
 .messageArea {
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    display: flex;
+    justify-content: center;
 
-    width: 65%;
+    width: 66%;
     height: 100%;
+}
+
+.noChoice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: fit-content;
+    height: fit-content;
+
+    align-self: center;
+}
+.noChoice span {
+    color: var(--font-color);
+
+    transform: scale(2.5);
+}
+.noChoice p {
+    margin-top: 30px;
+    font-family: var(--sans);
+    color: var(--font-color);
+}
+
+.messageContainer {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+
+.messageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3%;
+
+    width: 100%;
+    min-height: 50px;
+    height: 50px;
+    border-bottom: var(--border);
+
+    border-radius: 0 var(--border-radius) 0 0;
+
+    color: var(--font-color);
+}
+.messageHeader p{
+    font-family: var(--roboto);
+    font-size: 15px;
+}
+.headerBtnsArea {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.headerBtnsArea > * {
+    cursor: pointer;
+}
+.headerBtnsArea span:hover {
+    color: var(--icons-hover);
+}
+.roundAvatar {
+    width: 35px;
+    height: 35px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+.mainMsgArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+
+    padding: 20px 0;
+
+    gap: 10px;
+
+    width: 100%;
+
+    overflow-y: scroll;
+}
+.mainMsgArea > :first-child {
+    margin-top: auto;
+}
+.mainMsgArea::-webkit-scrollbar {
+    width: 3px;
+}
+.mainMsgArea::-webkit-scrollbar-thumb {
+    background: var(--scroll);
+
+    border-radius: 20px;
+}
+.messageWrapper {
+    position: relative;
+
+    display: flex;
+    gap: 10px;
+
+    width: 90%;
+    height: fit-content;
+    min-height: 45px;
+
+    cursor: pointer;
+}
+.messageWrapper img {
+    margin-left: 30px;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+.messageContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+
+    color: var(--font-color);
+    font-family: var(--sans);
+}
+.messageContent h1 {
+    font-weight: 400;
+    font-size: 14px;
+
+    background: var(--gradColor3);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.messageContent p {
+    font-weight: 400;
+    font-size: 14px;
+    word-wrap: anywhere;
+}
+.messageWrapper span {
+    position: absolute;
+    visibility: hidden;
+
+    transform: scale(0.9);
+
+    color: var(--icons-hover);
+}
+.messageWrapper span:first-child {
+    transform: scale(0.7);
+
+    background: var(--gradColor3);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.messageWrapper span:nth-child(4) {
+    right: 40px;
+}
+.messageWrapper span:nth-child(5) {
+    right: 10px;
+}
+.messageWrapper span:nth-child(4):hover, .messageWrapper span:nth-child(5):hover {
+    color: var(--font-color)
+}
+.messageWrapper:hover > span {
+    visibility: visible;
+}
+
+.inputArea {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+
+    padding: 2% 2%;
+
+    width: 100%;
+    height: fit-content;
+    max-height: 400px;
+    border-top: var(--border);
+
+    border-radius: 0 0 var(--border-radius) 0;
+    color: var(--font-color);
+}
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    flex-grow: 1;
+
+    height: fit-content;
+}
+.inputWrapper textarea {
+    padding: 2.5% 14% 2.5% 3%;
+
+    width: 100%;
+    height: 55%;
+    min-height: 45px;
+    max-height: 200px;
+    border-radius: 8px;
+
+    color: var(--font-color);
+    font-family: var(--sans);
+    font-weight: 400;
+
+    border: var(--border);
+    outline: none;
+
+    background: transparent;
+
+    resize: none;
+}
+.inputWrapper textarea::placeholder {
+    color: var(--font-color);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 12px;
+}
+.inputWrapper textarea::-webkit-scrollbar {
+    width: 3px;
+}
+.inputWrapper textarea::-webkit-scrollbar-thumb {
+    background: var(--scroll);
+    border-radius: 20px;
+}
+.inputWrapper span {
+    position: absolute;
+    bottom: 10px;
+
+    cursor: pointer;
+    transition: color 0.2s ease 0s;
+
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 300,
+            'GRAD' 200,
+            'opsz' 48
+}
+.inputWrapper span:nth-child(2) {
+    right: 8%;
+}
+.inputWrapper span:nth-child(3) {
+    right: 2%;
+}
+.inputArea > :first-child {
+    transform: rotate(45deg);
+}
+.inputArea > span {
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 10px;
+}
+.inputArea span:hover {
+    color: var(--icons-hover)
 }

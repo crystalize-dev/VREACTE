@@ -36,7 +36,7 @@ app.post('/auth/login', loginValidation, userController.login)
 app.post('/forgotEmail', emailController)
 
 // Запускаем сервер
-app.listen(4444, (err) => {
+app.listen(3001, (err) => {
     if (err) return console.log("Server error - ", err)
 
     console.log("Server is up!")

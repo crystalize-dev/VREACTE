@@ -30,9 +30,10 @@ span, img {
 
     --grayIcon: #747c88;
 
-    --gradColor1: #0717ed;
-    --gradColor3: #ef2525;
-    --gradient: linear-gradient(45deg, var(--gradColor1), var(--gradColor3));
+    --gradColor1: #00cdff;
+    --gradColor2: #a044c1;
+    --gradColor3: #510a93;
+    --gradient: linear-gradient(45deg, var(--gradColor1), var(--gradColor2), var(--gradColor3));
 
     --container-width: 1200px;
     --max-container-width: 1440px;

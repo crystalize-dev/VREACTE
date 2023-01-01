@@ -72,8 +72,8 @@ const LoginPage = () => {
 
             <div className={cl.options}>
                 <CheckBox text={"Remember me"}
-                               checked={remember} onChange={() => setRemember(!remember)}
-                               id={"checkBox1"}/>
+                          checked={remember} onChange={() => setRemember(!remember)}
+                          id={"checkBox1"}/>
 
                 <Link to="/forgot">I forgot my password!</Link>
             </div>

@@ -9,6 +9,7 @@ import {registerErrorHandler} from "../../../validation/registerErrorHandler";
 import InputLogin from "../../../components/GuestPage/InputLogin/InputLogin";
 import WindowForm from "../../../components/GuestPage/windowForm/windowForm";
 import ButtonBlack from "../../../components/GuestPage/buttonBlackSubmit/ButtonBlack";
+import Loading from "../../../components/UI/loading/loading.jsx";
 
 
 const Register = () => {
@@ -16,6 +17,7 @@ const Register = () => {
     const [passwordRepeat, setPasswordRepeat] = useState('')
     const [email, setEmail] = useState('')
     const [fullName, setFullName] = useState('')
+    const [fetch, setFetch] = useState(true)
 
     const [error, setError] = useState('')
 
@@ -27,6 +29,8 @@ const Register = () => {
         if (registerErrorHandler(passwordRepeat, password, email, fullName, setError)) return
 
         try {
+            setFetch(false)
+
             await axios.post("/auth/register", {
                 email: email,
                 password: password,
@@ -39,13 +43,16 @@ const Register = () => {
             setFullName("")
 
             navigate("/")
-
         } catch (err) {
             catchErrorsHandler(err, setError)
         }
+
+        setFetch(true)
     }
 
     return (
+        <>
+        <Loading status={!fetch}/>
         <WindowForm onSubmit={(e) => register(e)} backArrow={true}>
             <h2>Registration</h2>
 
@@ -73,6 +80,7 @@ const Register = () => {
 
             <ButtonBlack className={cl.submitButton}>Register</ButtonBlack>
         </WindowForm>
+        </>
     );
 };
 

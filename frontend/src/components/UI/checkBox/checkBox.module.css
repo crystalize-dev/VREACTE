@@ -21,6 +21,7 @@
     user-select: none;
 
     font-size: 14px;
+    color: var(--button-color);
 }
 .customCheckBox + label::before {
     content: '';

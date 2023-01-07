@@ -8,12 +8,12 @@ import cl from "./windowForm.module.css";
 import ThemeSwitcher from "../../UI/themeSwitcher/themeSwitcher";
 
 
-const WindowForm = ({onSubmit, backArrow=false, children}) => {
+const WindowForm = ({onSubmit, onChange, backArrow=false, children}) => {
 
     const {theme} = useContext(ThemeContext)
 
     return (
-        <form className={cl.wrapper} onSubmit={onSubmit}>
+        <form className={cl.wrapper} onSubmit={onSubmit} onChange={onChange} encType="multipart/form-data">
             <div className={cl.window}>
                 {backArrow &&
                     <BackArrow className={cl.backArrow}/>

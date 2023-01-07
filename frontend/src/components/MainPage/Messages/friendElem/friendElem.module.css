@@ -51,14 +51,14 @@
 .friendElem p {
     font-size: 12px;
 
-    color: #363636;
+    color: #777777;
 
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
 .friendElem p span {
-    color: #5a5a5a;
+    color: #626262;
 }
 
 .messageArea {

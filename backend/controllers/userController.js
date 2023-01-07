@@ -21,12 +21,12 @@ export const register = async (req, res) => {
         const salt = await crypt.genSalt(10)
         const hash = await crypt.hash(password, salt)
 
-
         // Создаём экземпляр пользователя
         const doc = new UserModel({
             email: req.body.email,
             fullName: req.body.fullName,
-            passwordHash: hash
+            passwordHash: hash,
+            avatar: req.body.avatar
         })
 
         // Комитим в БД
@@ -52,6 +52,8 @@ export const register = async (req, res) => {
         res.status(500).json({
             message: "User already exists!"
         })
+
+        console.log(err)
     }
 }
 

@@ -2,14 +2,15 @@
     align-self: center;
 
     width: 85%;
-    height: 55px;
+    min-height: 50px;
+    height: calc(45px + 1vw);
 
     border-radius: 100px;
 
     background: var(--button-color);
     border: 1px solid transparent;
 
-    font-size: calc(14px + 0.2vw);
+    font-size: calc(14px + 0.3vw);
     font-family: var(--poppins);
     font-weight: 600;
     color: var(--theme-color);

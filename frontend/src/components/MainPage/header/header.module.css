@@ -7,7 +7,7 @@
     justify-content: center;
 
     width: 100%;
-    min-width: var(--container-width);
+    min-width: var(--content-width);
     height: 50px;
     background: var(--background);
 
@@ -20,8 +20,8 @@
     justify-content: space-between;
 
     width: 83%;
-    min-width: var(--container-width);
-    max-width: var(--max-container-width);
+    min-width: var(--content-width);
+    max-width: var(--max-content-width);
     height: 100%;
 }
 
@@ -184,8 +184,7 @@
 
     border-radius: 50%;
 
-    background: url("../../../img/profile.jpeg") no-repeat center center;
-    background-size: cover;
+    object-fit: cover;
 }
 .profile span {
     color: var(--font-color);

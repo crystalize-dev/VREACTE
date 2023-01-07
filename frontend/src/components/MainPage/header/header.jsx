@@ -1,18 +1,26 @@
 import React, {useContext} from 'react';
-import cl from "./header.module.css";
+import {Link} from "react-router-dom";
 
 import Icon from "../../Icon/icon";
 import classes from "classnames";
-import {AuthContext} from "../../../context/authContext";
-import {Link} from "react-router-dom";
-import {UserContext} from "../../../context/userContext";
+import defaultAvatar from "../../../img/profile.jpeg"
+
 import {ThemeContext} from "../../../context/ThemeContext";
+import {AuthContext} from "../../../context/authContext";
+
+import cl from "./header.module.css";
+
+import {removeUserData} from "../../../redux/reducer/userReducer";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const Header = ({modal, setModal}) => {
     const {disAuth} = useContext(AuthContext);
-    const {userData} = useContext(UserContext);
     const {theme, switchTheme} = useContext(ThemeContext);
+
+    const dispatch = useDispatch();
+    const userName = useSelector(state => state.toolkit.name)
+    const avatar = useSelector(state => state.toolkit.avatar)
 
     const openProfile = (e) => {
         e.stopPropagation();
@@ -23,8 +31,7 @@ const Header = ({modal, setModal}) => {
     const disconnect = () => {
         disAuth();
 
-        localStorage.removeItem('token')
-        localStorage.removeItem('fullName')
+        dispatch(removeUserData())
     }
 
     return (
@@ -56,7 +63,7 @@ const Header = ({modal, setModal}) => {
                         </div>
 
                         <div className={cl.profile} onMouseDown={(e) => openProfile(e)}>
-                            <div className={cl.roundProfile}/>
+                            <img src={avatar ? avatar : defaultAvatar} alt={""} className={cl.roundProfile}/>
                             <Icon>expand_more</Icon>
                         </div>
                     </div>
@@ -65,8 +72,8 @@ const Header = ({modal, setModal}) => {
                          onMouseDown={(e) => e.stopPropagation()}>
                         <div className={cl.profileCard}>
                             <div className={cl.profileInfo}>
-                                <div className={cl.roundProfile}/>
-                                <p>{userData}</p>
+                                <img src={avatar ? avatar : defaultAvatar} className={cl.roundProfile} alt=""/>
+                                <p>{userName}</p>
                                 <Icon>navigate_next</Icon>
                             </div>
                             <div className={cl.paymentInfo}>

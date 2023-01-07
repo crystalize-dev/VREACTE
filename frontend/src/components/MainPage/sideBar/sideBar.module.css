@@ -5,7 +5,7 @@
     padding-left: 15px;
 
     width: 185px;
-    height: calc(100% - 50px);
+    height: 100%;
     z-index: 10000;
 }
 
@@ -69,7 +69,7 @@
 .subLinksArea span {
     transform: scale(0.9);
 
-    background: var(--gradColor3);
+    background: var(--gradColor1);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 

@@ -1,7 +1,7 @@
-import katya from "../img/avatars/katya.jpg"
-import eugene from "../img/avatars/eugene.jpg"
-import ismail from "../img/avatars/ismail.jpg"
-import timur from "../img/avatars/timur.jpg"
+import katya from "../../img/avatars/katya.jpg"
+import eugene from "../../img/avatars/eugene.jpg"
+import ismail from "../../img/avatars/ismail.jpg"
+import timur from "../../img/avatars/timur.jpg"
 
 
 export const friends = [

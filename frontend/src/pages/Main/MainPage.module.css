@@ -2,8 +2,8 @@
     display: flex;
 
     width: 83%;
-    min-width: var(--container-width);
-    max-width: var(--max-container-width);
+    min-width: var(--content-width);
+    max-width: var(--max-content-width);
     height: 100%;
 }
 .wrapper > * {
@@ -20,7 +20,7 @@
     width: 950px;
     min-width: 950px;
     height: 550px;
-    min-height: 550px;
+    min-height: calc(var(--content-height) - 70px);
 }
 
 .contentWrapper > * {

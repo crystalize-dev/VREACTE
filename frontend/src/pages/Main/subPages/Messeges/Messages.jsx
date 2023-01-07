@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import cl from "./Messages.module.css";
 import Icon from "../../../../components/Icon/icon";
 import FriendElem from "../../../../components/MainPage/Messages/friendElem/friendElem";
-import {friends} from "../../../../hardcode/friends";
+import {friends} from "../../../../utils/hardcode/friends";
 import noAvatar from "../../../../img/profile.jpeg";
 import TextareaAutosize from 'react-textarea-autosize';
+import {useSelector} from "react-redux";
 
 
 const Messages = () => {
@@ -12,6 +13,8 @@ const Messages = () => {
     const [friendList, setFriendList] = useState(friends)
 
     const [text, setText] = useState("")
+
+    const myName = useSelector(state => state.toolkit.name)
 
     const changeActive = (friend) => {
         setActive(friend)
@@ -108,7 +111,7 @@ const Messages = () => {
                                             src={message.who === "я" || active.img === null ? noAvatar : active.img}
                                             alt={""}/>
                                         <div className={cl.messageContent}>
-                                            <h1>{message.who === "я" ? localStorage.getItem("fullName") : message.who}</h1>
+                                            <h1>{message.who === "я" ? myName : message.who}</h1>
                                             <p>{message.message}</p>
                                         </div>
                                         <Icon>reply</Icon>

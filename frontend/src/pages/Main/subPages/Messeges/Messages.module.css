@@ -239,7 +239,7 @@
     font-weight: 400;
     font-size: 14px;
 
-    background: var(--gradColor3);
+    background: var(--gradColor1);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
@@ -259,7 +259,7 @@
 .messageWrapper span:first-child {
     transform: scale(0.7);
 
-    background: var(--gradColor3);
+    background: var(--gradColor1);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }

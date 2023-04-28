@@ -5,6 +5,8 @@ margin-top: 20px;">
     <img src="./frontend/src/img/logo.png" style="width:50px;height:50px" alt="logo_img"/> 
 </div>
 
+# OnProgress...
+
 # To do:
 
 - Добавить удаление картинки после submit
